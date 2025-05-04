@@ -1,0 +1,124 @@
+{
+  "version": 4,
+  "terraform_version": "1.9.8",
+  "serial": 8,
+  "lineage": "905c0b2c-bd87-28cd-c254-987f423a681b",
+  "outputs": {
+    "vm_public_ip": {
+      "value": null,
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "module": "module.vm",
+      "mode": "managed",
+      "type": "azurerm_resource_group",
+      "name": "rg",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "/subscriptions/8174c7c1-0633-4f33-af31-990f0e2b3f83/resourceGroups/jenkins-tf-rg",
+            "location": "canadacentral",
+            "managed_by": "",
+            "name": "jenkins-tf-rg",
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo1NDAwMDAwMDAwMDAwLCJkZWxldGUiOjU0MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjo1NDAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIwIn0="
+        }
+      ]
+    },
+    {
+      "module": "module.vm",
+      "mode": "managed",
+      "type": "azurerm_subnet",
+      "name": "subnet",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_prefixes": [
+              "10.0.1.0/24"
+            ],
+            "default_outbound_access_enabled": true,
+            "delegation": [],
+            "id": "/subscriptions/8174c7c1-0633-4f33-af31-990f0e2b3f83/resourceGroups/jenkins-tf-rg/providers/Microsoft.Network/virtualNetworks/vm-vnet/subnets/vm-subnet",
+            "name": "vm-subnet",
+            "private_endpoint_network_policies": "Disabled",
+            "private_link_service_network_policies_enabled": true,
+            "resource_group_name": "jenkins-tf-rg",
+            "service_endpoint_policy_ids": [],
+            "service_endpoints": [],
+            "timeouts": null,
+            "virtual_network_name": "vm-vnet"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.vm.azurerm_resource_group.rg",
+            "module.vm.azurerm_virtual_network.vnet"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vm",
+      "mode": "managed",
+      "type": "azurerm_virtual_network",
+      "name": "vnet",
+      "provider": "provider[\"registry.terraform.io/hashicorp/azurerm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "address_space": [
+              "10.0.0.0/16"
+            ],
+            "bgp_community": "",
+            "ddos_protection_plan": [],
+            "dns_servers": [],
+            "edge_zone": "",
+            "encryption": [],
+            "flow_timeout_in_minutes": 0,
+            "guid": "1c02ebcc-3904-4fd6-9601-09eac7227bca",
+            "id": "/subscriptions/8174c7c1-0633-4f33-af31-990f0e2b3f83/resourceGroups/jenkins-tf-rg/providers/Microsoft.Network/virtualNetworks/vm-vnet",
+            "location": "eastus",
+            "name": "vm-vnet",
+            "private_endpoint_vnet_policies": "Disabled",
+            "resource_group_name": "jenkins-tf-rg",
+            "subnet": [
+              {
+                "address_prefixes": [
+                  "10.0.1.0/24"
+                ],
+                "default_outbound_access_enabled": true,
+                "delegation": [],
+                "id": "/subscriptions/8174c7c1-0633-4f33-af31-990f0e2b3f83/resourceGroups/jenkins-tf-rg/providers/Microsoft.Network/virtualNetworks/vm-vnet/subnets/vm-subnet",
+                "name": "vm-subnet",
+                "private_endpoint_network_policies": "Disabled",
+                "private_link_service_network_policies_enabled": true,
+                "route_table_id": "",
+                "security_group": "",
+                "service_endpoint_policy_ids": [],
+                "service_endpoints": []
+              }
+            ],
+            "tags": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInJlYWQiOjMwMDAwMDAwMDAwMCwidXBkYXRlIjoxODAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "module.vm.azurerm_resource_group.rg"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
