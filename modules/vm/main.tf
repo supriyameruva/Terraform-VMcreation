@@ -38,20 +38,18 @@ resource "azurerm_network_interface" "nic" {
 }
 
 resource "azurerm_linux_virtual_machine" "vm" {
-  name                  = "vm-example"
+  name                  = "vm-linux"
   location              = var.location
   resource_group_name   = azurerm_resource_group.rg.name
   size                  = "Standard_B2s"
-  admin_username        = var.admin_username
-  admin_password        = var.admin_password
+  admin_username       = var.admin_username
+  admin_password       = var.admin_password
   network_interface_ids = [azurerm_network_interface.nic.id]
-
+  disable_password_authentication = false
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
-
-  disable_password_authentication = false
 
   source_image_reference {
     publisher = "Canonical"

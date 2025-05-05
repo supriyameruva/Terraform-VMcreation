@@ -1,9 +1,11 @@
 variable "resource_group_name" {
   type = string
+  default = "jenkins-tf-rg"
 }
 
 variable "location" {
   type = string
+  default = "Canada Central"
 }
 
 variable "admin_username" {
