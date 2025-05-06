@@ -9,20 +9,23 @@ variable "location" {
 }
 variable "keyvault_name" {
   type = string
+  default = "jenkins-tf-keyvault"
 }
 variable "key_vault_rg" {
     type = string
-
+    default = "jenkins-tf-rg"
 }
 variable "admin_username" {
   type = string
-  sensitive = true
+  sensitive = false
+  default = "adminuser"
 }
 
 
 variable "admin_password" {
   type      = string
-  sensitive = true
+  sensitive = false
+  default = "Password@123"
 }
 
 variable "subscription_id" {
