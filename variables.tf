@@ -18,14 +18,14 @@ variable "key_vault_rg" {
 variable "admin_username" {
   type = string
   sensitive = false
-  #default = "adminuser"
+  default = "adminuser"
 }
 
 
 variable "admin_password" {
   type      = string
   sensitive = false
-  #default = "Password@123"
+  default = "Password@123"
 }
 
 variable "subscription_id" {
